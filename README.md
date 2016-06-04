@@ -1,44 +1,44 @@
-# raspivo-install
+## raspivo-install
 steps to install raspivo on a raspberry3
 
-##Install a raspbian image
+###Install a raspbian image
 ```
 wget https://downloads.raspberrypi.org/raspbian_lite_latest
 unzip *raspbian-jessie-lite.zip
 dd bs=4M if=*raspbian-jessie-lite.img of=/dev/sdc
 ```
 
-##set default locale in utf8 (example : en_US.UTF8)
+###set default locale in utf8 (example : en_US.UTF8)
 ```
 dpkg-reconfigure locales tzdata
 ```
 
-##Install some utilities
+###install some utilities
 ```
 apt install vim tmux htop mlocate git
 cp /usr/share/doc/tmux/examples/screen-keys.conf /root/.tmux.conf
 ```
 
-##Install some apt requirement
+###install some apt requirement
 ```
 apt -y install debian-archive-keyring apt-transport-https debian-keyring 
 ```
 
-##Update 
+###update 
 ```
 apt upgrade -y
 apt dist-upgrade -y
 reboot
 ```
 
-##Add the Raspberry 3 repo
+###add the Raspberry 3 repo
 ```
 cat > /etc/apt/sources.list.d/raspivo.list << EOF
 deb http://www.iris-network.fr/raspivo/raspberrypi3/16.06 jessie main
 deb http://ftp.fr.debian.org/debian/ stable main contrib non-free
 EOF
 ```
-##Add the repo keys
+###add the repo keys
 ```
 gpg --keyserver pgpkeys.mit.edu --recv-key  3FC6A9B2ACDD4CF3 && gpg -a --export 3FC6A9B2ACDD4CF3 | apt-key add -
 gpg --keyserver pgpkeys.mit.edu --recv-key  8B48AD6246925553 && gpg -a --export 8B48AD6246925553 | apt-key add -
@@ -46,29 +46,29 @@ gpg --keyserver pgpkeys.mit.edu --recv-key  7638D0442B90D010 && gpg -a --export 
 gpg --keyserver pgpkeys.mit.edu --recv-key  CBF8D6FD518E17E1 && gpg -a --export CBF8D6FD518E17E1 | apt-key add -
 ```
 
-##update and upgrade
+###update and upgrade
 ```
 apt update
 apt upgrade -y
 ```
 
-##disable XiVO during the installation
+###disable XiVO during the installation
 ```
 mkdir /var/lib/xivo/
 touch /var/lib/xivo/disabled
 ```
 
-##install XiVO
+###install XiVO
 ```
 apt install -y xivo
 ```
 
-##disable dahdi
+###disable dahdi
 ```
 sed -i 's/  status)/  status)\n\texit 0/g' /etc/init.d/dahdi
 ```
 
-##reboot
+###reboot
 ```
 reboot
 ```
