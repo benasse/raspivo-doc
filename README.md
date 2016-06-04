@@ -8,7 +8,7 @@ unzip *raspbian-jessie-lite.zip
 dd bs=4M if=*raspbian-jessie-lite.img of=/dev/sdc
 ```
 
-##set default locale in utf8 one (example : en_US.UTF8)
+##set default locale in utf8 (example : en_US.UTF8)
 ```
 dpkg-reconfigure locales tzdata
 ```
