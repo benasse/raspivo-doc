@@ -84,7 +84,7 @@ You should not use xivo-dist, and may have to comment the xivo repo in `/etc/apt
 
 ```
 ###change the repository link
-edit `/etc/apt/sources.list.d/raspivo.list` and change the repository link whith the desired version
+edit `/etc/apt/sources.list.d/raspivo.list` and change the repository link with the desired version
 
 by example from 16.06 :
 
