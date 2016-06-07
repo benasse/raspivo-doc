@@ -1,5 +1,6 @@
+the following information are valid for raspberry3
+
 ## raspivo install
-steps to install raspivo on a raspberry3
 
 ###Install a raspbian image
 ```
