@@ -1,4 +1,4 @@
-## raspivo-install
+## raspivo install
 steps to install raspivo on a raspberry3
 
 ###Install a raspbian image
@@ -71,4 +71,33 @@ sed -i 's/  status)/  status)\n\texit 0/g' /etc/init.d/dahdi
 ###reboot
 ```
 reboot
+```
+
+##raspivo update
+
+###xivo-dist
+You should not use xivo-dist, and may have to comment the xivo repo in `/etc/apt/sources.list.d/xivo-dist.list` like this :
+```
+# xivo-five
+# deb http://mirror.xivo.io/debian/ xivo-five main
+# deb-src http://mirror.xivo.io/debian/ xivo-five main
+
+```
+###change the repository link
+edit `/etc/apt/sources.list.d/raspivo.list` and change the repository link whith the desired version
+by example from 16.06 :
+
+```
+deb http://www.iris-network.fr/raspivo/raspberrypi3/16.06 jessie main
+deb http://ftp.fr.debian.org/debian/ stable main contrib non-free
+```
+to 16.07 :
+```
+deb http://www.iris-network.fr/raspivo/raspberrypi3/16.07 jessie main
+deb http://ftp.fr.debian.org/debian/ stable main contrib non-free
+```
+
+###run xivo-upgrade
+```
+xivo-upgrade
 ```
